@@ -1,0 +1,80 @@
+<div class="page-header">
+  <div class="container">
+  <h1> View Employer</h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row top-row">
+    <div class="col-xs-6 row end-xs">
+      <a routerLink="/employers" color="primary" mat-raised-button>
+        <mat-icon>chevron_left</mat-icon>
+        Go Back
+      </a>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-6">
+
+      <form #employerDetailsForm="ngForm">
+        <div class="row">
+          <div class="col-xs-6">
+            <mat-form-field appearance="outline">
+              <mat-label>First Name</mat-label>
+              <input type="text" matInput>
+            </mat-form-field>
+          </div>
+          <div class="col-xs-6">
+          <mat-form-field appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input type="text" matInput>
+          </mat-form-field>
+        </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-6">
+            <mat-form-field appearance="outline">
+              <mat-label>Date of Birth</mat-label>
+              <input matInput [matDatepicker]="picker">
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+          </div>
+          <div class="col-xs-6">
+            <mat-form-field appearance="outline">
+              <mat-label>Date of Hire</mat-label>
+              <input matInput [matDatepicker]="picker_">
+              <mat-datepicker-toggle matSuffix [for]="picker_"></mat-datepicker-toggle>
+              <mat-datepicker #picker_></mat-datepicker>
+            </mat-form-field>
+          </div>
+
+
+        </div>
+
+        <div class="row">
+          <div class="col-xs-6">
+            <mat-form-field appearance="outline">
+              <mat-label>Annual salary</mat-label>
+              <input type="text" matInput>
+            </mat-form-field>
+          </div>
+          <div class="col-xs-6">
+          <mat-form-field appearance="outline">
+            <mat-label>Position</mat-label>
+            <input type="text" matInput>
+          </mat-form-field>
+        </div>
+        </div>
+
+      </form>
+
+    </div>
+    <div class="col-xs-6">
+      <!-- First Name-->
+    </div>
+
+  </div>
+
+</div>

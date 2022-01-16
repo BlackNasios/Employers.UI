@@ -1,0 +1,107 @@
+<div class="page-header">
+  <div class="container">
+  <h1>Employers</h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row end-xs mt-1">
+    <div class="col-xs-12">
+
+      <input type="text" class="search-input" placeholder="Searcg Employers"
+
+      [(ngModel)]="filterString"
+      (keyup)="filterEmployers()"
+
+      >
+    </div>
+
+
+
+  </div>
+
+<div class="mt-1" mat-elevation-z8>
+  <table mat-table matSort [dataSource]="dataSource" class="">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- First Name Column -->
+    <ng-container matColumnDef="firstName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
+    </ng-container>
+
+    <!-- Last Name Column -->
+    <ng-container matColumnDef="lastName">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
+    </ng-container>
+
+    <!-- Position Column -->
+    <ng-container matColumnDef="position">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> position </th>
+      <td mat-cell *matCellDef="let element"> {{element.position.Name}} </td>
+    </ng-container>
+
+
+
+
+     <!-- Date of birth Column -->
+     <ng-container matColumnDef="dateOfBirth">
+      <th mat-header-cell *matHeaderCellDef> Date Of Birth </th>
+      <td mat-cell *matCellDef="let element"> {{element.dateOfBirth | date:'dd-MM-yyyy'}} </td>
+    </ng-container>
+
+    <!-- Date of hire -->
+    <ng-container matColumnDef="dateOfHire">
+      <th mat-header-cell *matHeaderCellDef> Date Of Hire </th>
+      <td mat-cell *matCellDef="let element"> {{element.dateOfHire | date:'dd-MM-yyyy'}} </td>
+    </ng-container>
+
+      <!-- Annual Salary -->
+      <ng-container matColumnDef="annualSalary">
+        <th mat-header-cell *matHeaderCellDef> Annual Salary </th>
+        <td mat-cell *matCellDef="let element"> {{element.annualSalary}} </td>
+      </ng-container>
+
+        <!-- ID -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef> ID </th>
+          <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
+
+          <!-- Edit -->
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef>  </th>
+      <td mat-cell *matCellDef="let element">
+        <a [routerLink]="['/employers', element.id]">
+          <mat-icon volor="primary">edit</mat-icon>
+
+
+
+        </a>
+      </td>
+    </ng-container>
+
+
+
+
+
+
+
+
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  <mat-paginator [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              aria-label="Select page">
+</mat-paginator>
+
+</div>
+
+</div>
